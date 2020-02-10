@@ -4,8 +4,8 @@
     <title>@yield('title', 'Weibo App') - Laravel 入门教程</title>
     <link rel="stylesheet"  href="/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/app.css">
-    <script src="/bootstrap/js/jquery.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="/bootstrap/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script> -->
   </head>
   <body>
 
@@ -18,5 +18,8 @@
       </div>
     </div>
      @include('layouts._footer')
+
+
+     <script src="/js/app.js"></script>
   </body>
 </html>
