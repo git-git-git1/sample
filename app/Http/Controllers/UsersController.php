@@ -13,7 +13,7 @@ class UsersController extends Controller
     {
         //登录用户可访问的方法
         $this->middleware('auth', [
-            'except' => ['show', 'create', 'store']   //除了这里的方法
+            'except' => ['show', 'create', 'store','index']   //除了这里的方法
         ]);
 
         //只有未登录用户可访问的方法
@@ -77,6 +77,21 @@ class UsersController extends Controller
 
 
         return redirect()->route('users.show', $user->id);
+    }
+
+    //用户列表
+    public function index()
+    {
+        $users = User::paginate(10);
+        return view('users.index', compact('users'));
+    }
+
+    public function destroy(User $user)
+    {
+        $this->authorize('destroy', $user);
+        $user->delete();
+        session()->flash('success', '成功删除用户！');
+        return back();
     }
 
 }
